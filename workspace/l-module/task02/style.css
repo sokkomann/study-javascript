@@ -1,0 +1,22 @@
+table, div#input-container {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: separate;
+    table-layout: fixed;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td.defaultRed {
+    color: red;
+}
+
+td.green {
+    color: green;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <a href="https://naver.com" class="child">링크</a>
+    </div>
+</body>
+<script>
+
+const parent = document.querySelector(".parent");
+const child = document.querySelector(".child");
+
+parent.addEventListener("click", () => {
+    console.log("부모 클릭됨");
+});
+
+// 1. 아무것도 안 함
+child.addEventListener("click", (e) => {
+    console.log("자식 클릭됨");
+});
+// 결과: "자식 클릭됨" → "부모 클릭됨" → 네이버로 이동
+
+// 2. stopPropagation만
+child.addEventListener("click", (e) => {
+    e.stopPropagation();
+    console.log("자식 클릭됨");
+});
+// 결과: "자식 클릭됨" → 네이버로 이동 (부모 이벤트 실행 안 됨)
+
+// 3. preventDefault만
+child.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("자식 클릭됨");
+});
+// 결과: "자식 클릭됨" → "부모 클릭됨" (네이버로 이동 안 함)
+
+// 4. 둘 다
+child.addEventListener("click", (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log("자식 클릭됨");
+});
+// 결과: "자식 클릭됨" (부모 이벤트 실행 안 됨, 네이버로 이동 안 함)
+
+</script>
+</html>

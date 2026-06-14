@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 속성 선택</title>
+</head>
+<body>
+    <h1>아이디 속성 선택</h1>
+    <div id="first">첫 번째 div</div>
+    <!-- <div id="first">
+        <strong style="display: none;">
+            DIV입니다.
+        </strong>
+    </div> -->
+    <textarea id="second">textarea입니다.</textarea>
+    <input type="text" id="third" value="input입니다.">
+</body>
+<script>
+    const first = document.getElementById("first");  // 단수(아이디는 중복없으니까)
+    // write/read
+    // innerHTML: 태그는 태그로 인식
+    // console.log(first.innerHTML);   // 11-15를 활성화하면 string태그포함해서 나옴. 10일때는 첫 번째 div 찍힘
+    // first.innerHTML = `<strong>${first.innerHTML}</strong>`;
+
+    // innerText: 내용(텍스트)만 인식(눈에 보이는 텍스트만, display: none은 가져올 수 없음)
+    // console.log(first.innerText);   // 11-15를 활성화하면 안찍힘. 10을 활성화하면 내용찍힘(첫 번째 div)
+
+    // textContent: 내용(텍스트)만 인식(모든 텍스트)
+    // console.log(first.textContent); // 11-15, 10 둘다 내용찍힘
+
+    // textarea는 원래 작성되어 있던 내용을 innerHTML, textContent로 가져올 수 있다.
+    // innerText로 입력한 값, 기존에 작성된 값을 가져올 수 없다.
+    // 
+    const second = document.getElementById("second");
+    console.log(second.innerHTML);
+    console.log(second.innerText);
+    console.log(second.textContent);
+    console.log(second.value);
+
+    // input은 value로만 입력한 값을 가져올 수 있다.
+    const third = document.getElementById("third");
+    console.log(third.value);
+</script>
+</html>

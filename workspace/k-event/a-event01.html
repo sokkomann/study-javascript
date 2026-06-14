@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트</title>
+</head>
+<body>
+    <h2>스타일 동적 변경</h2>
+    <br>
+    <p>버튼을 눌렀을때 변경될 요소</p>
+    <input type="button" value="스타일 변경">
+</body>
+<script>
+                                        // input태그의 버튼 타입인 놈(All이 아니니까) 
+    const button = document.querySelector("input[type=button]");
+    const p = button.previousElementSibling;
+
+    // 이벤트 객체는 방금 발생한 이벤트 정보를 다 담고있음
+    // 클릭했을때 뒤에있는 콜백함수가 실행돼요.
+    button.addEventListener("click", (e) => {
+        // 클릭했을때 내가 하고싶은거를 여기 작성
+
+        with(p.style){
+            width = "200px";
+            fontSize = "30px";
+            border = "1px dashed magenta";
+            textAlign = "center";
+        }
+        // p.style.fontSize = "~~~";
+        // p.style.color = "~~~";
+    });
+</script>
+</html>

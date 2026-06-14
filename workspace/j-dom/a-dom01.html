@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 이름 선택</title>
+    <style>
+        body {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>클래스 이름 선택</h1>
+    <ul>
+        <li class="item odd">1번</li>
+        <li class="item even">2번</li>
+        <li class="item odd">3번</li>
+        <li class="item even">4번</li>
+        <li class="item odd">5번</li>
+    </ul>
+</body>
+<script>
+    HTMLCollection.prototype.forEach = Array.prototype.forEach; // -> 이걸 써줘야 배열사용가능(포이치는 배열에적용가능)
+    // 홀수와 짝수 태그를 각각 빨간색과 녹색으로 변경한다.
+    // 단, 모든 li 태그를 한 번에 가져와서 처리한다
+    const items = document.getElementsByClassName("item");      // 복수(클래스는 중복가능)
+    // console.log(items); // 타입이 HTMLCollection
+
+    items.forEach((item) => {
+        item.style.color = item.className.includes("odd") ? "red" : "green";
+    });
+
+    // const oddList = document.getElementsByClassName("odd");
+    // oddList.forEach((odd) => {
+    //     odd.style.color = "red";     // 스타일도 객체다
+    // });
+
+    // 짝수 번째는 글자색을 녹색으로 변경
+    // const evenList = document.getElementsByClassName("even");
+
+    // evenList.forEach((ev) => {
+    //     // console.log(ev.className);
+    //     ev.style.color = "green";
+    // })
+</script>
+</html>
